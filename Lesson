@@ -1,6 +1,7 @@
 /**
  * Group of elemets related with Materia, like Name,Professor, etc..
  * @Camarón-Caramelo
+ * Version 1.1
  *
  */
 
@@ -11,17 +12,21 @@ public class Materia
     
     /* Inicializador de la clase Materia, en donde definimos valores predeterminados para dicha clase */
     public Materia()
-    {
-      name = "Error";
-    }
+    { name = "Error"; professor = "No Asignado"; }
     
     /* Método que asigna el nombre de la Materia al campo name*/
-    public void putName(String x)
-    { name = x; }
+    public void putLessonName(String x)
+    { name = x;  }
     
     /* Método que devuelve el nombre de la Materia (En caso de que ya haya sido modificado)*/
-    public String getsName()
+    public String getLessonName()
     { return name; }
+    
+    public void putProfessorName(String y)
+    { professor = y; }
+    
+    public String getProfessorName()
+    { return professor; }
     
     /* Prototipo de asignación de horarios, en donde:
      *  n = El día de la semana (1,2,3,4,5)
