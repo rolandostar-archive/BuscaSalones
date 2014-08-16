@@ -1,0 +1,78 @@
+/**
+ * Group of elemets related with Materia, like Name,Professor, etc..
+ * @Camarón-Caramelo
+ *
+ */
+
+public class Materia
+{
+    public String name,professor;
+    int[] horario={ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};  
+    
+    /* Inicializador de la clase Materia, en donde definimos valores predeterminados para dicha clase */
+    public Materia()
+    {
+      name = "Error";
+    }
+    
+    /* Método que asigna el nombre de la Materia al campo name*/
+    public void putName(String x)
+    { name = x; }
+    
+    /* Método que devuelve el nombre de la Materia (En caso de que ya haya sido modificado)*/
+    public String getsName()
+    { return name; }
+    
+    /* Prototipo de asignación de horarios, en donde:
+     *  n = El día de la semana (1,2,3,4,5)
+     *  i = La hora de inicio de la clase
+     *  f = La hora de termino de la clase
+     */
+    public void Hours(int n, int i, int f)
+    { 
+       horario[(n-1)*2] = i;
+       horario[n+(n-1)] = f;
+    }
+    
+    /* Método que imprime el horario, separado en días */
+    public void prf()
+    {
+        System.out.print("||");
+        for(int i=0; i<10; i++)
+          if(i%2==1)
+           { System.out.print(horario[i]+" || "); }
+          else
+           System.out.print(horario[i]+" ");
+        System.out.println("..");
+    }
+    
+    /*Pruba de efectividad de código*/
+    public void withClass()
+    {
+        if(horario[0] != -1)
+            System.out.println("El Lunes sí hay clase");
+        if(horario[2] != -1)
+            System.out.println("El Martes sí hay clase");
+        if(horario[4] != -1)
+            System.out.println("El Miercoles sí hay clase");
+        if(horario[6] != -1)
+            System.out.println("El Jueves sí hay clase");
+        if(horario[8] != -1)
+            System.out.println("El Viernes sí hay clase");    
+    }
+    
+    /*Pruba de efectividad de código*/
+    public void noClass()
+    {
+        if(horario[0] == -1)
+            System.out.println("El Lunes no hay clase");
+        if(horario[2] == -1)
+            System.out.println("El Martes no hay clase");
+        if(horario[4] == -1)
+            System.out.println("El Miercoles no hay clase");
+        if(horario[6] == -1)
+            System.out.println("El Jueves no hay clase");
+        if(horario[8] == -1)
+            System.out.println("El Viernes no hay clase");    
+    }
+}
