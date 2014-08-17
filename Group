@@ -71,7 +71,6 @@ public class Secuencia
     /*Método para imprimir toda la información contenida en una secuencia */
     public void generalInformation()
     {
-    
         System.out.println(name);
         System.out.println("Tiene "+mat_num+" materias y son: ");
         //Ciclo de impresión de cada ma teria con su respectivo profesor y horario..
