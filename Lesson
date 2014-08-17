@@ -1,18 +1,22 @@
 /**
  * Group of elemets related with Materia, like Name,Professor, etc..
  * @Camarón-Caramelo
- * Version 1.1
- *
+ * Version 1.2
  */
 
 public class Materia
 {
     public String name,professor;
+    public int days;
     int[] horario={ -1, -1, -1, -1, -1, -1, -1, -1, -1, -1};  
     
     /* Inicializador de la clase Materia, en donde definimos valores predeterminados para dicha clase */
     public Materia()
-    { name = "Error"; professor = "No Asignado"; }
+    { 
+        name = "Error"; 
+        professor = "No Asignado"; 
+        days = 0;
+    }
     
     /* Método que asigna el nombre de la Materia al campo name*/
     public void putLessonName(String x)
@@ -22,11 +26,21 @@ public class Materia
     public String getLessonName()
     { return name; }
     
+    /* Método que asigna el nombre del profesor al campo professor*/
     public void putProfessorName(String y)
     { professor = y; }
     
+    /* Método que devuelve el nombre del profesor (Si ya fue modificado)*/
     public String getProfessorName()
     { return professor; }
+    
+    /* Método que asigna a days el numero de veces que ésta materia se lleva a la semana */
+    public void putDaysAtWeek(int y)
+    { days = y; }
+    
+    /* Método que regresa el num de veces que se lleva la materia por semana */
+    public int getDaysAtWeek()
+    { return days; }
     
     /* Prototipo de asignación de horarios, en donde:
      *  n = El día de la semana (1,2,3,4,5)
