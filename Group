@@ -4,9 +4,8 @@ import java.util.Scanner;
 /**
  * Group of elemets related with the students and his lessons..
  * @Camarón-Caramelo
- * version 1.2
+ * version 1.2.1
  */
-
 public class Secuencia
 {
     public Scanner ints,strs;
@@ -51,6 +50,7 @@ public class Secuencia
             //Por último, el # de días que tiene clases y el horario de éstos..
             System.out.print(" Numero de veces por semana:  ");
             int aux = ints.nextInt();
+            lessons[i].putDaysAtWeek(aux);
             System.out.println(" -- -- -- -- -- -- -- -- -- -- -- --  ");
             for(int j=0; j<aux; j++)
             {
@@ -68,23 +68,21 @@ public class Secuencia
         }
     }
     
-    /*Método para imprimir toda la información contenida en una secuencia */
+    /* Método que imprime la información de la secuencia: Materias, profesor y horarios */
     public void generalInformation()
     {
         System.out.println(name);
         System.out.println("Tiene "+mat_num+" materias y son: ");
-        //Ciclo de impresión de cada ma teria con su respectivo profesor y horario..
         for(int i=0; i<mat_num; i++)
         {
             System.out.println(" -- -- -- -- -- -- -- -- ");
             System.out.println(lessons[i].getLessonName()+" impartida por "+lessons[i].getProfessorName());
-            System.out.println("El horario de ésta materia es: ");
-            // Método declarado en la clase Materia que imprime el horario separado en días
+            System.out.println("És tomada "+lessons[i].getDaysAtWeek()+" veces a la semana y su horario es: ");
             lessons[i].prf();
             System.out.println("Significa que los días con clase son: ");
-            // Prueba de efectividad de código
             lessons[i].withClass();
             System.out.println(" -- -- -- -- -- -- -- -- ");
         }
     }
 }
+
