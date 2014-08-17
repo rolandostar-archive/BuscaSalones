@@ -68,16 +68,23 @@ public class Secuencia
         }
     }
     
+    /*Método para imprimir toda la información contenida en una secuencia */
     public void generalInformation()
     {
+    
         System.out.println(name);
         System.out.println("Tiene "+mat_num+" materias y son: ");
+        //Ciclo de impresión de cada ma teria con su respectivo profesor y horario..
         for(int i=0; i<mat_num; i++)
         {
             System.out.println(" -- -- -- -- -- -- -- -- ");
             System.out.println(lessons[i].getLessonName()+" impartida por "+lessons[i].getProfessorName());
             System.out.println("El horario de ésta materia es: ");
+            // Método declarado en la clase Materia que imprime el horario separado en días
             lessons[i].prf();
+            System.out.println("Significa que los días con clase son: ");
+            // Prueba de efectividad de código
+            lessons[i].withClass();
             System.out.println(" -- -- -- -- -- -- -- -- ");
         }
     }
