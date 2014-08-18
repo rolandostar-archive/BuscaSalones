@@ -1,0 +1,88 @@
+/* Librería que incluye el Scanner, usado para leer desde de teclado [Cambiar para leer desde TextBox] */
+import java.util.Scanner;
+
+/**
+ * Group of elemets related with the students and his lessons..
+ * @Camarón-Caramelo
+ * version 1.2.1
+ */
+public class Secuencia
+{
+    public Scanner ints,strs;
+    public int mat_num;
+    public String name;
+    public Materia[] lessons = new Materia[8];
+    
+    /* Inicializador de la clase Secuencia, en donde definimos valores predeterminados para dicha clase*/
+    public Secuencia()
+    {
+        name = "No Asignado";
+        mat_num = -1;
+        for(int i=0; i<8; i++) 
+            lessons[i] = new Materia();        
+        ints = new Scanner(System.in);
+        strs = new Scanner(System.in);
+    }
+        
+    /* Método que asigna el nombre de la Secuencia al campo name*/
+    public void putSecName(String x)
+    { name = x; }
+    
+    /* Método que devuelve el nombre de la Secuencia (En caso de que ya haya sido modificado)*/
+    public String getSecName()
+    { return name; }
+    
+    /* Prototipo para ingresar las clases de la secuencia (POR SALÓN) en donde
+     *   n = numero de MATERIAS
+     */
+    public void addLessons(int n)
+    {
+        //Ciclo para agregar cada una de las materias poniendo en ellas:
+        this.mat_num = n;
+        for(int i=0; i<n; i++)
+        {
+            //Primero, el nombre de la matera:
+            System.out.print(" Nombre de la materia:  ");
+            lessons[i].putLessonName(strs.next());
+            //Después el nombre del maestro
+            System.out.print(" Nombre del profesor/a:  ");
+            lessons[i].putProfessorName(strs.next());
+            //Por último, el # de días que tiene clases y el horario de éstos..
+            System.out.print(" Numero de veces por semana:  ");
+            int aux = ints.nextInt();
+            lessons[i].putDaysAtWeek(aux);
+            System.out.println(" -- -- -- -- -- -- -- -- -- -- -- --  ");
+            for(int j=0; j<aux; j++)
+            {
+                //Ahora, a agregar el horario: (En formato nena)
+                System.out.print(" El día que te toca Lunes = 1.. Martes = 2.. etc:  ");
+                int a = ints.nextInt();
+                System.out.print(" Hora de inicio de la Clase:  ");
+                int b = ints.nextInt();
+                System.out.print(" Hora de termino de la Clase:  ");
+                int c = ints.nextInt();
+                lessons[i].Hours(a,b,c);
+                System.out.println(" -- -- -- -- -- -- -- -- -- -- -- --  ");
+            }
+            System.out.println(" -- -- -- -- -- -- -- -- -- -- -- --  "); 
+        }
+    }
+    
+    /* Método que imprime la información de la secuencia: Materias, profesor y horarios */
+    public void generalInformation()
+    {
+        System.out.println(name);
+        System.out.println("Tiene "+mat_num+" materias y son: ");
+        for(int i=0; i<mat_num; i++)
+        {
+            System.out.println(" -- -- -- -- -- -- -- -- ");
+            System.out.println(lessons[i].getLessonName()+" impartida por "+lessons[i].getProfessorName());
+            System.out.println("És tomada "+lessons[i].getDaysAtWeek()+" veces a la semana y su horario es: ");
+            lessons[i].prf();
+            System.out.println("Significa que los días con clase son: ");
+            lessons[i].withClass();
+            System.out.println(" -- -- -- -- -- -- -- -- ");
+        }
+    }
+}
+
