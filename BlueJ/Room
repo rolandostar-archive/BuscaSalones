@@ -52,6 +52,7 @@ public class Room
         }
     }
     
+    /* Método que imprime en pantalla toda la información contenida en un salón */
     public void completeInformation()
     {
         System.out.println("Salon: "+name);
@@ -62,5 +63,11 @@ public class Room
             groups[i].generalInformation();
             System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ");
         }
+    }
+    
+    /* Método que calcula huecos en el salón..  */
+    public void emptyFinder()
+    {
+      //Empty for now...   
     }
 }
