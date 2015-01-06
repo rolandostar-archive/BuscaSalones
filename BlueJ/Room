@@ -1,0 +1,73 @@
+/* Librería que incluye el Scanner, usado para leer desde de teclado [Cambiar para leer desde TextBox] */
+import java.util.Scanner;
+
+/**
+ * Main class of the app, with all the stuff that we need
+ * @Camarón-Caramelo
+ * version 1.1
+ */
+ 
+public class Room
+{
+    public String name;
+    public int sec_num;
+    public Scanner nums,text;
+    public Secuencia[] groups = new Secuencia[4];
+    
+    /* Constructor de la clase Room, con los valores predefinidos */
+    public Room()
+    { 
+      name = "Sin Asignar";
+      for(int i=0; i<4; i++)
+        groups[i] = new Secuencia();
+      nums = new Scanner(System.in);
+      text = new Scanner(System.in);
+    }
+    
+    /* Método que asigna el nombre del salón al campo name */
+    public void putRoomName(String y)
+    { name = y; }
+    
+    /* Método que devuelve el nombre del salón (En caso de que ya haya sido modificado)*/
+    public String getRoomName()
+    { return name; }
+    
+    /* Método que agrega el numero de secuencias con todos sus datos a cada salón */
+    public void addGroups(int n)
+    {
+        // # de secuencias por salón
+        sec_num = n;
+        for(int i=0; i<n; i++)
+        {
+            //Primero, el nombre de la secuencia:
+            System.out.print(" Nombre de la secuencia:  ");
+            groups[i].putSecName(text.next());
+            /* Posteriormente agregar el numero de materias, con su nombre, nombre del profesor
+             * y el horario de cada una...
+             * Método declarado en la clase Secuencia agrega todos los datos de la misma
+             */
+            System.out.print(" Número de materias que lleva ésta matera:  ");
+            int aux = nums.nextInt();
+            groups[i].addLessons(aux);
+        }
+    }
+    
+    /* Método que imprime en pantalla toda la información contenida en un salón */
+    public void completeInformation()
+    {
+        System.out.println("Salon: "+name);
+        System.out.println("Tiene "+sec_num+" secuencias y son: ");
+        for(int i=0; i<sec_num; i++)
+        {
+            System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ");
+            groups[i].generalInformation();
+            System.out.println(" * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ");
+        }
+    }
+    
+    /* Método que calcula huecos en el salón..  */
+    public void emptyFinder()
+    {
+      //Empty for now...   
+    }
+}
